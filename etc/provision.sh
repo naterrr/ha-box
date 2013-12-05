@@ -43,7 +43,7 @@ npm install -g yo
 # npm install -g brunch
 
 # ffmpeg
-apt-get install -y libmp3lame0 libmp3lame-dev libx264-120 libx264-dev ffmpeg sox libavcodec53 libavcodec-dev
+# apt-get install -y libmp3lame0 libmp3lame-dev libx264-120 libx264-dev ffmpeg sox libavcodec53 libavcodec-dev
 # apt-get install -y ubuntu-restricted-extras
 
 # beanstalkd
