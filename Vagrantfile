@@ -16,5 +16,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
   config.vm.synced_folder ".", "/vagrant", nfs: true
   
-  # config.vm.provision :shell, :path => "etc/provision.sh"
+  config.vm.provision :shell, :path => "etc/provision.sh"
 end
