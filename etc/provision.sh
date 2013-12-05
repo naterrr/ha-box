@@ -3,8 +3,8 @@
 # http://stackoverflow.com/questions/7739645/install-mysql-on-ubuntu-without-password-prompt
 export DEBIAN_FRONTEND=noninteractive
 
-apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
-echo "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen" > /etc/apt/sources.list.d/10gen.list
+apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' > /etc/apt/sources.list.d/mongodb.list
 
 add-apt-repository -y ppa:keithw/mosh
 
@@ -12,7 +12,7 @@ apt-get update
 apt-get -y upgrade
 
 # essentials
-apt-get install -y git tree vim
+apt-get install -y git tree
 
 # mosh
 apt-get install -y mosh
@@ -23,24 +23,34 @@ apt-get install -y openjdk-7-jdk
 # mongodb
 apt-get install -y mongodb-10gen
 
+# node from source 
 # https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
 apt-get install -y python-software-properties python g++ make build-essential
-
-# node from source 
 cd /opt
 wget http://nodejs.org/dist/v0.10.22/node-v0.10.22.tar.gz
-tar -xzvf node-v0.10.22.tar.gz
+tar -xzf node-v0.10.22.tar.gz
 cd node-v0.10.22
 ./configure
 make
 make install
+
+# FIXME make this non-interactive
+# https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
+# apt-get install python g++ make checkinstall
+# cd /opt
+# mkdir node-latest && cd $_
+# wget -N http://nodejs.org/dist/node-latest.tar.gz
+# tar xzvf node-latest.tar.gz && cd node-v* #(remove the "v" in front of the version number in the dialog)
+# ./configure
+# checkinstall 
+# dpkg -i node_*
+
 npm update -g
 
 npm install -g pm2
 npm install -g bower
 npm install -g grunt-cli
 npm install -g yo
-# npm install -g brunch
 
 # ffmpeg
 # apt-get install -y libmp3lame0 libmp3lame-dev libx264-120 libx264-dev ffmpeg sox libavcodec53 libavcodec-dev
@@ -75,14 +85,16 @@ cd /etc/apache2/mods-enabled
 ln -s ../mods-available/rewrite.load
 ln -s ../mods-available/headers.load 
 
+# FIXME add to fstab
 # www root
 # mount --bind /vagrant/media /var/www
-
 
 # restart apache
 /etc/init.d/apache2 restart
 
 # start node app
-cd /vagrant
+# cd /vagrant
 # npm install
 # pm2 start app.js 
+
+# TODO etckeeper
