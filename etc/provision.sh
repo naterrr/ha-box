@@ -9,6 +9,10 @@ apt-get update
 
 # git + etckeeper
 apt-get install -y git etckeeper
+
+git config --global user.name "Automatic Jack"
+git config --global user.email webmaster@hyperaud.io
+
 cd /etc/etckeeper
 ln -sf /vagrant/etc/etckeeper.conf
 etckeeper init
@@ -83,7 +87,7 @@ apt-get install -y beanstalkd
 
 # apache + LAMP
 apt-get install -y apache2 apache2-threaded-dev lamp-server^
-apt-get install php5 php5-gd php5-mysql php5-curl php5-cli php5-cgi php5-dev
+apt-get install -y php5 php5-gd php5-mysql php5-curl php5-cli php5-cgi php5-dev
 
 # mod_h264
 cd /opt
