@@ -6,13 +6,27 @@ export DEBIAN_FRONTEND=noninteractive
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' > /etc/apt/sources.list.d/mongodb.list
 
+# mosh
 add-apt-repository -y ppa:keithw/mosh
 
+# ffmpeg http://linuxg.net/how-to-install-ffmpeg-2-1-ubuntu-13-10-13-04-12-10-linux-mint-16-15-14-and-pear-os-8-7/
+add-apt-repository -y ppa:samrog131/ppa
+
 apt-get update
-apt-get -y upgrade
 
 # essentials
 apt-get install -y git tree
+
+# etckeeper
+apt-get install -y etckeeper
+cd /etc/etckeeper
+ln -sf /vagrant/etc/etckeeper.conf
+etckeeper init
+etckeeper commit -m"init"
+
+
+apt-get -y upgrade
+
 
 # mosh
 apt-get install -y mosh
@@ -55,6 +69,8 @@ npm install -g yo
 # ffmpeg
 # apt-get install -y libmp3lame0 libmp3lame-dev libx264-120 libx264-dev ffmpeg sox libavcodec53 libavcodec-dev
 # apt-get install -y ubuntu-restricted-extras
+apt-get install -y ffmpeg
+# TODO from source https://trac.ffmpeg.org/wiki/UbuntuCompilationGuide incl x264
 
 # beanstalkd
 apt-get install -y beanstalkd
@@ -93,8 +109,8 @@ ln -s ../mods-available/headers.load
 /etc/init.d/apache2 restart
 
 # start node app
-# cd /vagrant
+# cd /srv
 # npm install
 # pm2 start app.js 
 
-# TODO etckeeper
+
