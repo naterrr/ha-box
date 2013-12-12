@@ -97,6 +97,11 @@ service beanstalkd start
 apt-get install -y apache2 apache2-threaded-dev lamp-server^
 apt-get install -y php5 php5-gd php5-mysql php5-curl php5-cli php5-cgi php5-dev
 
+apt-get install -y php-pear
+pecl install mongo
+cd /etc/php5/apache2/conf.d/
+ln -s /vagrant/etc/mongo.ini
+
 # mod_h264
 # cd /opt
 # wget http://h264.code-shop.com/download/apache_mod_h264_streaming-2.2.7.tar.gz
