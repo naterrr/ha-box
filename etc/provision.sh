@@ -26,6 +26,9 @@ apt-get -y upgrade
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' > /etc/apt/sources.list.d/mongodb.list
 
+# install add-apt-repository
+apt-get install -y python-software-properties
+
 # mosh
 add-apt-repository -y ppa:keithw/mosh
 
@@ -72,7 +75,10 @@ make install
 
 npm update -g
 
+# essential
 npm install -g pm2
+
+# handy
 npm install -g bower
 npm install -g grunt-cli
 npm install -g yo
@@ -83,7 +89,9 @@ npm install -g yo
 
 # beanstalkd
 apt-get install -y beanstalkd
-
+cd /etc/default/
+ln -sf ln -sf /vagrant/etc/beanstalkd
+service beanstalkd start
 
 # apache + LAMP
 apt-get install -y apache2 apache2-threaded-dev lamp-server^
