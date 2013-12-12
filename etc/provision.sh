@@ -106,6 +106,26 @@ pecl install mongo
 cd /etc/php5/apache2/conf.d/
 ln -s /vagrant/etc/mongo.ini
 
+# tools
+apt-get install -y unzip
+
+# genghis
+cd /opt
+wget https://github.com/bobthecow/genghis/archive/v2.3.10.zip
+unzip v2.3.10.zip
+
+# beanstalk console
+cd /opt
+git clone https://github.com/ptrofimov/beanstalk_console.git
+
+# cd /vagrant
+# mkdir tools
+# cd /vagrant/tools
+cd /vagrant/static
+ln -sf /opt/beanstalk_console/public beanstalkd
+ln -sf /opt/genghis-2.3.10 mongo
+
+
 # mod_h264
 # cd /opt
 # wget http://h264.code-shop.com/download/apache_mod_h264_streaming-2.2.7.tar.gz
@@ -129,4 +149,4 @@ ln -s ../mods-available/rewrite.load
 ln -s ../mods-available/headers.load 
 
 # restart apache
-/etc/init.d/apache2 restart
+service apache2 restart
