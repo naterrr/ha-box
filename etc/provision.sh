@@ -52,9 +52,9 @@ apt-get install -y ffmpeg
 # https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
 apt-get install -y python-software-properties python g++ make build-essential
 cd /opt
-wget http://nodejs.org/dist/v0.10.22/node-v0.10.22.tar.gz
-tar -xzf node-v0.10.22.tar.gz
-cd node-v0.10.22
+wget http://nodejs.org/dist/v0.10.23/node-v0.10.23.tar.gz
+tar -xzf node-v0.10.23.tar.gz
+cd node-v0.10.23
 ./configure
 make
 make install
@@ -90,13 +90,13 @@ apt-get install -y apache2 apache2-threaded-dev lamp-server^
 apt-get install -y php5 php5-gd php5-mysql php5-curl php5-cli php5-cgi php5-dev
 
 # mod_h264
-cd /opt
-wget http://h264.code-shop.com/download/apache_mod_h264_streaming-2.2.7.tar.gz
-tar -zxvf apache_mod_h264_streaming-2.2.7.tar.gz
-cd /opt/mod_h264_streaming-2.2.7
-./configure --with-apxs=`which apxs2`
-make
-make install
+# cd /opt
+# wget http://h264.code-shop.com/download/apache_mod_h264_streaming-2.2.7.tar.gz
+# tar -zxvf apache_mod_h264_streaming-2.2.7.tar.gz
+# cd /opt/mod_h264_streaming-2.2.7
+# ./configure --with-apxs=`which apxs2`
+# make
+# make install
 
 # vhost
 cd /etc/apache2/sites-enabled/
