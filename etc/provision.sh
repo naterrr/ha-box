@@ -98,7 +98,7 @@ gem install compass
 # beanstalkd
 apt-get install -y beanstalkd
 cd /etc/default/
-ln -sf ln -sf /vagrant/etc/beanstalkd
+ln -sf /vagrant/etc/default/beanstalkd
 service beanstalkd start
 
 # apache + LAMP
@@ -154,3 +154,10 @@ ln -sf /vagrant/etc/status.conf
 
 # restart apache
 service apache2 restart
+
+
+# haproxy
+apt-get install -y haproxy hatop
+cd /etc/default/
+ln -sf /vagrant/etc/default/haproxy
+service haproxy start
