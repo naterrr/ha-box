@@ -19,6 +19,12 @@ etckeeper init
 etckeeper commit -m"init"
 
 
+# JVM
+# apt-get install -y openjdk-7-jdk
+
+# + jgit! 
+
+
 apt-get -y upgrade
 
 
@@ -88,8 +94,6 @@ gem update --system
 gem install compass
 
 
-# JVM
-# apt-get install -y openjdk-7-jdk
 
 # beanstalkd
 apt-get install -y beanstalkd
