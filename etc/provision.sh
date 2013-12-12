@@ -78,10 +78,14 @@ npm update -g
 # essential
 npm install -g pm2
 
-# handy
+# local dev essentials
 npm install -g bower
 npm install -g grunt-cli
 npm install -g yo
+
+# compass style
+gem update --system
+gem install compass
 
 
 # JVM
