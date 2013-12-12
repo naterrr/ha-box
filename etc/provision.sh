@@ -122,10 +122,9 @@ unzip v2.3.10.zip
 cd /opt
 git clone https://github.com/ptrofimov/beanstalk_console.git
 
-# cd /vagrant
-# mkdir tools
-# cd /vagrant/tools
-cd /vagrant/static
+cd /vagrant
+mkdir tools
+cd /vagrant/tools
 ln -sf /opt/beanstalk_console/public beanstalkd
 ln -sf /opt/genghis-2.3.10 mongo
 
@@ -151,6 +150,7 @@ ln -sf /vagrant/etc/ports.conf
 cd /etc/apache2/mods-enabled
 ln -s ../mods-available/rewrite.load
 ln -s ../mods-available/headers.load 
+ln -sf /vagrant/etc/status.conf
 
 # restart apache
 service apache2 restart
