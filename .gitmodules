@@ -1,3 +1,0 @@
-[submodule "tools/genghis"]
-	path = tools/genghis
-	url = https://github.com/bobthecow/genghis.git
