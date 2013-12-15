@@ -108,7 +108,7 @@ apt-get install -y php5 php5-gd php5-mysql php5-curl php5-cli php5-cgi php5-dev
 apt-get install -y php-pear
 pecl install mongo
 cd /etc/php5/apache2/conf.d/
-ln -s /vagrant/etc/mongo.ini
+ln -s /vagrant/etc/apache2/mongo.ini
 
 # tools
 apt-get install -y unzip
@@ -140,17 +140,17 @@ ln -sf /opt/genghis-2.3.10 mongo
 
 # vhost
 cd /etc/apache2/sites-enabled/
-ln -sf /vagrant/etc/VirtualHost.conf 000-default
+ln -sf /vagrant/etc/apache2/VirtualHost.conf 000-default
 
 # ports
 cd /etc/apache2/
-ln -sf /vagrant/etc/ports.conf 
+ln -sf /vagrant/etc/apache2/ports.conf 
 
 # apache modules
 cd /etc/apache2/mods-enabled
 ln -s ../mods-available/rewrite.load
 ln -s ../mods-available/headers.load 
-ln -sf /vagrant/etc/status.conf
+ln -sf /vagrant/etc/apache2/status.conf
 
 # restart apache
 service apache2 restart
