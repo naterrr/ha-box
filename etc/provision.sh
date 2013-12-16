@@ -8,7 +8,7 @@ apt-get update
 
 
 # git + etckeeper
-apt-get install -y git etckeeper
+apt-get install -y git tree etckeeper
 
 git config --global user.name "Automatic Jack"
 git config --global user.email webmaster@hyperaud.io
@@ -59,7 +59,7 @@ apt-get install -y ffmpeg
 
 # node from source 
 # https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
-apt-get install -y python-software-properties python g++ make build-essential
+apt-get install -y g++ make build-essential
 cd /opt
 wget http://nodejs.org/dist/v0.10.23/node-v0.10.23.tar.gz
 tar -xzf node-v0.10.23.tar.gz
@@ -90,7 +90,8 @@ npm install -g grunt-cli
 npm install -g yo
 
 # compass style
-gem update --system
+apt-get install -y ruby1.9.1
+# gem update --system
 gem install compass
 
 
