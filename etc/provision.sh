@@ -7,8 +7,8 @@ export DEBIAN_FRONTEND=noninteractive
 apt-get update
 
 
-# git + etckeeper
-apt-get install -y git tree etckeeper
+# git + etckeeper 
+apt-get install -y git etckeeper
 
 git config --global user.name "Automatic Jack"
 git config --global user.email webmaster@hyperaud.io
@@ -17,6 +17,9 @@ cd /etc/etckeeper
 ln -sf /vagrant/etc/etckeeper.conf
 etckeeper init
 etckeeper commit -m"init"
+
+# essentials
+apt-get install -y tree vim
 
 
 # JVM
